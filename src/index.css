@@ -13,3 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  padding: 15px;
+  max-width: 1265px; /* same as stack overflow */
+  margin: 0 auto;
+}
