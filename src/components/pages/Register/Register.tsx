@@ -3,9 +3,11 @@ import "./Register.css";
 import LoadingOverlay from "../../ui/LoadingOverlay/LoadingOverlay";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +43,7 @@ const Register = () => {
       if (!data) throw "There was a problem parsing register response";
 
       dispatch(setUser(data.user))
+      navigate('/login')
     } catch (e) {
       if (typeof e === "string") {
         setRegisterError(e);

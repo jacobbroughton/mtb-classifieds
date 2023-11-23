@@ -41,8 +41,9 @@ function Navbar() {
       <p>Local Bike Market</p>
       <div className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        {auth.user && <Link to="/sell">Sell</Link>}
+        {!auth.user && <Link to="/login">Login</Link>}
+        {!auth.user && <Link to="/register">Register</Link>}
         {auth.user && <button onClick={handleLogout}>Logout</button>}
       </div>
     </nav>

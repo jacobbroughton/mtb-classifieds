@@ -1,0 +1,94 @@
+.sell {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sell .success-modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  max-width: 500px;
+  width: calc(100% - 40px);
+}
+
+.sell .success-modal h2 {
+  margin-bottom: 30px;
+}
+
+.sell .success-modal-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.447);
+  inset: 0;
+  z-index: 1;
+}
+
+.sell form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sell form .form-block {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sell form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.sell form label {
+  font-size: 0.875rem;
+}
+
+.sell form .form-group input,
+.sell form .form-group textarea,
+.sell form .form-group select {
+  width: 100%;
+  padding: 3px 5px;
+  font-family: inherit;
+}
+
+.sell form .form-group select {
+  background-image: url("src/components/ui/Icons/Arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+.sell form button[type="submit"] {
+  background-color: #4ad493;
+  padding: 7px 15px;
+  align-self: flex-start;
+  border-radius: 3px;
+  font-size: 1rem;
+  color: #212529;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.1s ease filter;
+}
+
+.sell form button[type="submit"]:hover {
+  filter: brightness(1.1);
+}

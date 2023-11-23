@@ -6,6 +6,8 @@ import Navbar from "./components/ui/Navbar/Navbar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/auth";
+import Sell from "./components/pages/Sell/Sell";
+import Bike from "./components/pages/Bike/Bike";
 
 function App() {
   const navigate = useNavigate();
@@ -41,6 +43,8 @@ function App() {
           <Route element={<Listings />} path="/" />
           <Route element={<Register />} path="/register" />
           <Route element={<Login />} path="/login" />
+          <Route element={<Sell />} path="/sell" />
+          <Route element={<Bike />} path="/:bikeID" />
         </Routes>
       </main>
     </>
