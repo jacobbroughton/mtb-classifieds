@@ -22,6 +22,7 @@
 
 main {
   padding: 15px;
+  padding-top: 55px;
   max-width: 1265px; /* same as stack overflow */
   margin: 0 auto;
 }
@@ -34,4 +35,17 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+input,
+textarea,
+button,
+select {
+  border-radius: 3px;
+  border: 1px solid grey;
+  padding: 3px 5px;
+}
+
+textarea {
+  resize: vertical;
 }

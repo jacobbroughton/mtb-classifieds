@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./Sell.css";
 import LoadingOverlay from "../../ui/LoadingOverlay/LoadingOverlay";
 import { Link } from "react-router-dom";
+import "./Sell.css";
 
 const Sell = () => {
   const [year, setYear] = useState(2023);
@@ -19,6 +19,8 @@ const Sell = () => {
   const [trades, setTrades] = useState("No Trades");
   const [location, setLocation] = useState("Matthews, NC");
   const [negotiableStatus, setNegotiableStatus] = useState("Open To Reasonable Offers");
+  const [contactPhoneNumber, setContactPhoneNumber] = useState("7047708371");
+  const [sellerName, setSellerName] = useState("Jacob Broughton");
   const [photos, setPhotos] = useState([]);
   const [sellError, setSellError] = useState("");
   const [listedBikeID, setListedBikeID] = useState(false);
@@ -156,111 +158,145 @@ const Sell = () => {
       <h1>Sell</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-block">
-          <h2>Your Details</h2>
+          <h2>Your Info</h2>
+          <fieldset>
+            <div className="form-group">
+              <label>Full Name</label>
+              <input
+                onChange={(e) => setSellerName(e.target.value)}
+                value={sellerName}
+                placeholder="Seller's Name"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Contact Phone Number</label>
+              <input
+                onChange={(e) => setContactPhoneNumber(e.target.value)}
+                value={contactPhoneNumber}
+                placeholder="Contact Phone Number"
+                required
+              />
+            </div>
+          </fieldset>
+          <div className="form-group">
+            <label>Location</label>
+            <input
+              onChange={(e) => setLocation(e.target.value)}
+              value={location}
+              placeholder="Location"
+            />
+          </div>
         </div>
 
         <div className="form-block">
           <h2>Bike Details</h2>
+          <fieldset className="form-groups year-make-model">
+            <div className="form-group year">
+              <label>Year</label>
+              <select
+                onChange={(e) => setYear(e.target.value)}
+                value={new Date().getFullYear()}
+              >
+                {yearOptions.map((year) => (
+                  <option value={year}>{year}</option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Make (Brand)</label>
+              <input
+                onChange={(e) => setMake(e.target.value)}
+                value={make}
+                placeholder="Make"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Model</label>
+              <input
+                onChange={(e) => setModel(e.target.value)}
+                value={model}
+                placeholder="Model"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group price">
+              <label>Price</label>
+              <input
+                onChange={(e) => setPrice(e.target.value)}
+                value={price}
+                placeholder="Price"
+                required
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Year</label>
-            <select
-              onChange={(e) => setYear(e.target.value)}
-              value={new Date().getFullYear()}
-            >
-              {yearOptions.map((year) => (
-                <option value={year}>{year}</option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Make (Brand)</label>
-            <input
-              onChange={(e) => setMake(e.target.value)}
-              value={make}
-              placeholder="Make"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Model</label>
-            <input
-              onChange={(e) => setModel(e.target.value)}
-              value={model}
-              placeholder="Model"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              onChange={(e) => setPrice(e.target.value)}
-              value={price}
-              placeholder="Price"
-              required
-            />
-          </div>
+            <div className="form-group">
+              <label>Condition</label>
+              <select onChange={(e) => setCondition(e.target.value)} value={condition}>
+                {conditionOptions.map((condition) => (
+                  <option value={condition}>{condition}</option>
+                ))}
+              </select>
+            </div>
 
-          <div className="form-group">
-            <label>Condition</label>
-            <select onChange={(e) => setCondition(e.target.value)} value={condition}>
-              {conditionOptions.map((condition) => (
-                <option value={condition}>{condition}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label>Category</label>
-            <select onChange={(e) => setCategory(e.target.value)} value={category}>
-              {categoryOptions.map((category) => (
-                <option value={category}>{category}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label>Frame Size</label>
-            <select onChange={(e) => setFrameSize(e.target.value)} value={frameSize}>
-              <option selected>Select One</option>
-              {frameSizeOptions.map((sizeOption) => (
-                <option value={sizeOption}>{sizeOption}</option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Wheel Size </label>
-            <select onChange={(e) => setWheelSize(e.target.value)} value={wheelSize}>
-              <option selected>Select One</option>
-              {wheelSizeOptions.map((sizeOption) => (
-                <option value={sizeOption}>{sizeOption}</option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Front Travel (mm)</label>
-            <input
-              onChange={(e) => setFrontTravel(e.target.value)}
-              value={frontTravel}
-              placeholder="Front Travel"
-              required
-              type="number"
-              min="0"
-              max="1000"
-            />
-          </div>
-          <div className="form-group">
-            <label>Rear Travel (mm)</label>
-            <input
-              onChange={(e) => setRearTravel(e.target.value)}
-              value={rearTravel}
-              placeholder="Rear Travel"
-              required
-              type="number"
-              min="0"
-              max="1000"
-            />
-          </div>
+            <div className="form-group">
+              <label>Category</label>
+              <select onChange={(e) => setCategory(e.target.value)} value={category}>
+                {categoryOptions.map((category) => (
+                  <option value={category}>{category}</option>
+                ))}
+              </select>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label>Frame Size</label>
+              <select onChange={(e) => setFrameSize(e.target.value)} value={frameSize}>
+                <option selected>Select One</option>
+                {frameSizeOptions.map((sizeOption) => (
+                  <option value={sizeOption}>{sizeOption}</option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Wheel Size </label>
+              <select onChange={(e) => setWheelSize(e.target.value)} value={wheelSize}>
+                <option selected>Select One</option>
+                {wheelSizeOptions.map((sizeOption) => (
+                  <option value={sizeOption}>{sizeOption}</option>
+                ))}
+              </select>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label>Front Travel (mm)</label>
+              <input
+                onChange={(e) => setFrontTravel(e.target.value)}
+                value={frontTravel}
+                placeholder="Front Travel"
+                required
+                type="number"
+                min="0"
+                max="1000"
+              />
+            </div>
+            <div className="form-group">
+              <label>Rear Travel (mm)</label>
+              <input
+                onChange={(e) => setRearTravel(e.target.value)}
+                value={rearTravel}
+                placeholder="Rear Travel"
+                required
+                type="number"
+                min="0"
+                max="1000"
+              />
+            </div>
+          </fieldset>
           <div className="form-group">
             <label>Modifications</label>
             <textarea
@@ -295,14 +331,6 @@ const Sell = () => {
                 <option value={tradingOption}>{tradingOption}</option>
               ))}
             </select>
-          </div>
-          <div className="form-group">
-            <label>Location</label>
-            <input
-              onChange={(e) => setLocation(e.target.value)}
-              value={location}
-              placeholder="Location"
-            />
           </div>
           <div className="form-group">
             <label>Photos</label>

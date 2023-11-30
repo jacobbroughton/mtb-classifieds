@@ -48,13 +48,28 @@
   gap: 10px;
 }
 
+.sell form fieldset {
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .sell form .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 3px;
+  width: 100%;
 }
 
+.sell form .form-group:first-child {
+  flex-grow: 0;
+}
+.sell form .form-group.year,
+.sell form .form-group.price {
+  max-width: 100px;
+}
 .sell form label {
   font-size: 0.875rem;
 }
@@ -63,8 +78,13 @@
 .sell form .form-group textarea,
 .sell form .form-group select {
   width: 100%;
-  padding: 3px 5px;
+  padding: 5px 10px;
   font-family: inherit;
+  font-size: 1rem;
+}
+
+.sell form .form-group select {
+  position: pointer;
 }
 
 .sell form .form-group select {
@@ -75,7 +95,6 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
 
 .sell form button[type="submit"] {
   background-color: #4ad493;

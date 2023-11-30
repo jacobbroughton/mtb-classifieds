@@ -14,12 +14,12 @@ function App() {
   const dispatch = useDispatch()
 
   async function getUser() {
-    // setLoading(true)
     const response = await fetch(`http://localhost:3001/`, {
       method: "GET",
       credentials: "include",
       headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
     });
+
 
     const data = await response.json();
 

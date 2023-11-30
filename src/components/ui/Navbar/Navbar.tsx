@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <nav>
-      <p>Local Bike Market</p>
+      <Link to="/">Local Bike Market</Link>
       <div className="nav-links">
         <Link to="/">Home</Link>
         {auth.user && <Link to="/sell">Sell</Link>}
